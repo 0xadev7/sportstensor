@@ -4,3 +4,9 @@ scikit-learn
 wandb
 tabulate
 python-dotenv
+
+# Additional dependencies
+aiohttp
+pydantic
+numpy
+joblib
