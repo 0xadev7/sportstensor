@@ -46,18 +46,18 @@ class SportPredictionModel(ABC):
 
 async def make_match_prediction(prediction: MatchPrediction):
     # Lazy import to avoid circular dependency
-    from st.models.base import SportstensorBaseModel
+    # from st.models.base import SportstensorBaseModel
 
-    from st.models.soccer import SoccerPredictionModel
-    from st.models.football import FootballPredictionModel
-    from st.models.baseball import BaseballPredictionModel
-    from st.models.basketball import BasketballPredictionModel
+    # from st.models.soccer import SoccerPredictionModel
+    # from st.models.football import FootballPredictionModel
+    # from st.models.baseball import BaseballPredictionModel
+    # from st.models.basketball import BasketballPredictionModel
 
     # Add new league classes here
-    from st.models.soccer_mls import MLSSoccerPredictionModel
-    from st.models.baseball_mlb import MLBBaseballPredictionModel
-    from st.models.soccer_epl import EPLSoccerPredictionModel
-    from st.models.football_nfl import NFLFootballPredictionModel
+    # from st.models.soccer_mls import MLSSoccerPredictionModel
+    # from st.models.baseball_mlb import MLBBaseballPredictionModel
+    # from st.models.soccer_epl import EPLSoccerPredictionModel
+    # from st.models.football_nfl import NFLFootballPredictionModel
     from st.models.basketball_nba import NBABasketballPredictionModel
     
     base_classes = {
