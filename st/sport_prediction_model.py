@@ -61,19 +61,19 @@ async def make_match_prediction(prediction: MatchPrediction):
     from st.models.basketball_nba import NBABasketballPredictionModel
     
     base_classes = {
-        'base': SportstensorBaseModel
+        # 'base': SportstensorBaseModel
     }
     sport_classes = {
-        Sport.SOCCER: SoccerPredictionModel,
-        Sport.FOOTBALL: FootballPredictionModel,
-        Sport.BASEBALL: BaseballPredictionModel,
-        Sport.BASKETBALL: BasketballPredictionModel,
+        # Sport.SOCCER: SoccerPredictionModel,
+        # Sport.FOOTBALL: FootballPredictionModel,
+        # Sport.BASEBALL: BaseballPredictionModel,
+        # Sport.BASKETBALL: BasketballPredictionModel,
     }
     league_classes = {
-        League.MLS: MLSSoccerPredictionModel,
-        League.MLB: MLBBaseballPredictionModel,
-        League.EPL: EPLSoccerPredictionModel,
-        League.NFL: NFLFootballPredictionModel,
+        # League.MLS: MLSSoccerPredictionModel,
+        # League.MLB: MLBBaseballPredictionModel,
+        # League.EPL: EPLSoccerPredictionModel,
+        # League.NFL: NFLFootballPredictionModel,
         League.NBA: NBABasketballPredictionModel,
     }
 
