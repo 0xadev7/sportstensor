@@ -17,6 +17,9 @@ from typing import Any, Dict, List, Optional, AsyncIterator
 
 import aiohttp
 
+import dotenv
+dotenv.load_dotenv()
+
 
 DEFAULT_TIMEOUT = 10
 RETRY_BACKOFF = [0.5, 1.0, 2.0, 4.0]
