@@ -16,6 +16,7 @@ import json
 import datetime as dt
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Tuple, Optional
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -26,6 +27,9 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, brier_score_loss, log_loss
 import joblib
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models" / "nba_winprob.joblib"
 
 # Feature names kept in sync with nba_features.build_match_feature_row
 NUMERIC_FEATURES = [
@@ -131,28 +135,20 @@ def train_model(
 def save_model(
     pipe: Pipeline,
     meta: ModelMetadata,
-    model_dir: str = "./models",
-    model_name: str = "nba_winprob.joblib",
 ) -> str:
-    os.makedirs(model_dir, exist_ok=True)
-    model_path = os.path.join(model_dir, model_name)
-    joblib.dump({"pipeline": pipe, "meta": asdict(meta)}, model_path)
+    joblib.dump({"pipeline": pipe, "meta": asdict(meta)}, MODEL_PATH)
     with open(
-        os.path.join(model_dir, model_name.replace(".joblib", ".meta.json")),
+        MODEL_PATH.with_suffix(".meta.json"),
         "w",
     ) as f:
         json.dump(asdict(meta), f, indent=2)
-    return model_path
+    return str(MODEL_PATH)
 
 
-def load_model(
-    model_dir: str = "./models",
-    model_name: str = "nba_winprob.joblib",
-):
-    path = os.path.join(model_dir, model_name)
-    if not os.path.exists(path):
+def load_model():
+    if not MODEL_PATH.exists():
         return None
-    obj = joblib.load(path)
+    obj = joblib.load(MODEL_PATH)
     return obj["pipeline"]
 
 

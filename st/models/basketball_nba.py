@@ -17,7 +17,6 @@ from st.models.impl.basketball_nba.nba_features import (
 )
 from st.models.impl.basketball_nba.nba_model import load_model, predict_proba
 
-
 def _american_to_implied_prob(ml: int) -> Optional[float]:
     """
     Convert American moneyline to implied probability (with vig).
